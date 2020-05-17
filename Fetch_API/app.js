@@ -64,6 +64,18 @@ function getPosts () {
         })
         .then(data => {
             console.log(data)
+            let output =   ``;
+            data.forEach(post => {
+                output += `
+                <ul>
+                    <li>userID: ${post.userId} </li>
+                    <li>postID: ${post.id} </li>
+                    <li>title: ${post.title} </li>
+                    <li>body: ${post.body} </li>
+                </ul>    
+                `
+            })
+            document.getElementById('output').innerHTML = output;
         })
         .catch(err => {
             console.error('WHOA BRO! There was an error: ' + err.stack)
